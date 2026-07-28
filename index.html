@@ -6,7 +6,7 @@
 <title>מיכל אבידן — קורות חיים</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --charcoal: #36454f;
@@ -36,6 +36,14 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html[lang="en"] body {
+    font-family: 'Inter', 'Assistant', sans-serif;
+  }
+
+  /* ===== LANGUAGE VISIBILITY ===== */
+  html[lang="he"] [data-lang="en"] { display: none !important; }
+  html[lang="en"] [data-lang="he"] { display: none !important; }
+
   body {
     padding: 40px 20px;
     min-height: 100vh;
@@ -50,6 +58,76 @@
       0 8px 30px rgba(54, 69, 79, 0.08);
   }
 
+  /* ===== LANGUAGE TOGGLE ===== */
+  .lang-toggle {
+    position: fixed;
+    top: 20px;
+    inset-inline-end: 20px;
+    z-index: 100;
+    display: flex;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    box-shadow: 0 2px 10px rgba(54, 69, 79, 0.10);
+  }
+
+  .lang-toggle button {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 7px 16px;
+    border: none;
+    background: transparent;
+    color: var(--slate);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .lang-toggle button:hover {
+    color: var(--charcoal);
+  }
+
+  .lang-toggle button.active {
+    background: var(--charcoal);
+    color: var(--white);
+  }
+
+  /* ===== PRINT / PDF BUTTON ===== */
+  .actions {
+    position: fixed;
+    bottom: 20px;
+    inset-inline-end: 20px;
+    z-index: 100;
+  }
+
+  .actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 11px 18px;
+    background: var(--charcoal);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(54, 69, 79, 0.25);
+    transition: background 0.15s ease;
+  }
+
+  .actions button:hover {
+    background: var(--charcoal-soft);
+  }
+
+  .actions button svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    stroke: var(--white);
+  }
+
   /* ===== HEADER ===== */
   .header {
     padding: 70px 80px 50px;
@@ -61,7 +139,7 @@
     content: '';
     position: absolute;
     top: 70px;
-    right: 0;
+    inset-inline-start: 0;
     width: 4px;
     height: 80px;
     background: var(--charcoal);
@@ -115,12 +193,16 @@
   }
 
   .contact-item {
-    padding-left: 24px;
-    border-left: 1px solid var(--hairline);
+    padding-inline-end: 24px;
+    border-inline-end: 1px solid var(--hairline);
   }
 
   .contact-item:last-child {
-    border-left: none;
+    border-inline-end: none;
+  }
+
+  .contact-item + .contact-item {
+    padding-inline-start: 24px;
   }
 
   .contact-label {
@@ -141,7 +223,11 @@
   .contact-value.ltr {
     direction: ltr;
     unicode-bidi: bidi-override;
-    text-align: right;
+    text-align: end;
+  }
+
+  html[lang="en"] .contact-value.ltr {
+    text-align: start;
   }
 
   .contact-link {
@@ -179,7 +265,7 @@
     margin-bottom: 56px;
     padding: 32px 36px;
     background: var(--bg-gray);
-    border-right: 3px solid var(--charcoal);
+    border-inline-start: 3px solid var(--charcoal);
   }
 
   .summary p {
@@ -248,6 +334,10 @@
     color: var(--charcoal);
     letter-spacing: 0.05em;
     line-height: 1.4;
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: start;
+    white-space: nowrap;
   }
 
   .exp-meta .duration {
@@ -284,7 +374,7 @@
 
   .exp-content li {
     position: relative;
-    padding-right: 18px;
+    padding-inline-start: 18px;
     margin-bottom: 8px;
     font-size: 14.5px;
     line-height: 1.7;
@@ -295,7 +385,7 @@
   .exp-content li::before {
     content: '';
     position: absolute;
-    right: 0;
+    inset-inline-start: 0;
     top: 11px;
     width: 8px;
     height: 1px;
@@ -313,7 +403,7 @@
     background: var(--bg-gray);
     font-size: 13.5px;
     color: var(--charcoal-soft);
-    border-right: 2px solid var(--slate);
+    border-inline-start: 2px solid var(--slate);
   }
 
   .achievement strong {
@@ -348,6 +438,13 @@
     color: var(--charcoal);
     letter-spacing: 0.05em;
     padding-top: 2px;
+  }
+
+  .edu-year.range {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: start;
+    white-space: nowrap;
   }
 
   .edu-body .edu-name {
@@ -449,8 +546,12 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 760px) {
-    body { padding: 0; }
+    body { padding: 0; padding-top: 56px; }
     .page { box-shadow: none; }
+    .lang-toggle { top: 10px; inset-inline-end: 10px; }
+    .lang-toggle button { padding: 6px 13px; }
+    .actions { bottom: 14px; inset-inline-end: 14px; }
+    .actions button { padding: 9px 14px; font-size: 12px; }
     .header { padding: 40px 28px 32px; }
     .header::before { top: 40px; }
     .name { font-size: 38px; }
@@ -459,11 +560,12 @@
     .summary { padding: 22px 24px; }
     .contact-grid { grid-template-columns: 1fr; gap: 16px; }
     .contact-item {
-      padding-left: 0;
+      padding-inline-end: 0;
       padding-bottom: 16px;
-      border-left: none;
+      border-inline-end: none;
       border-bottom: 1px solid var(--hairline);
     }
+    .contact-item + .contact-item { padding-inline-start: 0; }
     .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
     .exp-item { grid-template-columns: 1fr; gap: 12px; }
     .two-col { grid-template-columns: 1fr; gap: 40px; }
@@ -471,28 +573,53 @@
 
   /* ===== PRINT ===== */
   @media print {
+    @page { size: A4; margin: 12mm; }
     body { padding: 0; background: white; }
     .page { box-shadow: none; max-width: 100%; }
+    .lang-toggle, .actions { display: none !important; }
     .header { padding: 40px 50px 30px; }
     .content { padding: 35px 50px; }
     .footer { padding: 20px 50px; }
     .section { margin-bottom: 30px; page-break-inside: avoid; }
     .exp-item { page-break-inside: avoid; }
     .summary { page-break-inside: avoid; }
+    .summary, .achievement, .skill-tag, .footer {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
   }
 </style>
 </head>
 <body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-toggle" role="group" aria-label="Language">
+  <button id="btn-he" type="button" onclick="setLang('he')">עברית</button>
+  <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- PRINT / PDF -->
+<div class="actions">
+  <button type="button" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span data-lang="he">הדפסה / PDF</span>
+    <span data-lang="en">Print / PDF</span>
+  </button>
+</div>
 
 <div class="page">
 
   <!-- HEADER -->
   <header class="header">
     <div class="name-block">
-      <h1 class="name">מיכל <strong>אבידן</strong></h1>
+      <h1 class="name">
+        <span data-lang="he">מיכל <strong>אבידן</strong></span>
+        <span data-lang="en">Michal <strong>Avidan</strong></span>
+      </h1>
       <span class="credential">RN · B.A.</span>
     </div>
-    <p class="role-line">אחות מוסמכת · טריאז', אשפוז ורפואה דחופה בקהילה · שליטה מצוינת במערכות מידע רפואיות</p>
+    <p class="role-line" data-lang="he">אחות מוסמכת · טריאז', אשפוז ורפואה דחופה בקהילה · שליטה מצוינת במערכות מידע רפואיות</p>
+    <p class="role-line" data-lang="en">Registered Nurse · Triage, Inpatient &amp; Community Urgent Care · Highly Proficient in Medical Information Systems</p>
 
     <div class="contact-grid">
       <div class="contact-item">
@@ -515,7 +642,10 @@
       </div>
       <div class="contact-item">
         <div class="contact-label">Location</div>
-        <div class="contact-value">זכרון יעקב</div>
+        <div class="contact-value">
+          <span data-lang="he">זכרון יעקב</span>
+          <span data-lang="en">Zikhron Ya'akov, Israel</span>
+        </div>
       </div>
     </div>
   </header>
@@ -525,8 +655,11 @@
 
     <!-- SUMMARY -->
     <section class="summary">
-      <p>
+      <p data-lang="he">
         <strong>אחות מוסמכת</strong> בעלת ידע קליני רחב, יכולת <strong>זיהוי ומיון (טריאז') מהיר במצבי עומס</strong>, תודעת שירות גבוהה ושליטה מצוינת ב<strong>מערכות מידע רפואיות</strong>. בעלת ניסיון עשיר בעבודה פרונטלית וטראומטית/דחופה, מתן מענה אנושי ומקצועי והובלת טיפול איכותי בקהילה ובאשפוז.
+      </p>
+      <p data-lang="en">
+        <strong>Registered Nurse</strong> with broad clinical knowledge, skilled in <strong>rapid triage and assessment under pressure</strong>, with a strong service orientation and excellent command of <strong>medical information systems</strong>. Extensive experience in front-line and trauma/urgent care, delivering professional, compassionate care and leading high-quality treatment in both community and inpatient settings.
       </p>
     </section>
 
@@ -534,22 +667,31 @@
     <section class="section">
       <div class="section-header">
         <span class="section-num">01 —</span>
-        <h2 class="section-title">ניסיון מקצועי</h2>
+        <h2 class="section-title" data-lang="he">ניסיון מקצועי</h2>
+        <h2 class="section-title" data-lang="en">Professional Experience</h2>
         <span class="section-rule"></span>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
           <div class="date">2025 — 2026</div>
-          <div class="duration">קהילה</div>
+          <div class="duration">
+            <span data-lang="he">קהילה</span>
+            <span data-lang="en">Community</span>
+          </div>
         </div>
         <div class="exp-content">
-          <h3 class="role">אחות קהילה וחיסונים</h3>
-          <div class="org">קופת חולים מכבי</div>
+          <h3 class="role" data-lang="he">אחות קהילה וחיסונים</h3>
+          <h3 class="role" data-lang="en">Community &amp; Immunization Nurse</h3>
+          <div class="org" data-lang="he">קופת חולים מכבי</div>
+          <div class="org" data-lang="en">Maccabi Health Services</div>
           <ul>
-            <li>טיפול סיעודי כוללני במרפאה ראשונית: חיסונים, מעקבי שגרה, טיפולים והדרכת מטופלים.</li>
-            <li>מתן חיסונים לכל הגילאים ומעקב אחר שגרת החיסונים בהתאם להנחיות משרד הבריאות.</li>
-            <li>עבודה שוטפת מול רופאי משפחה וצוות רב-מקצועי בקהילה.</li>
+            <li data-lang="he">טיפול סיעודי כוללני במרפאה ראשונית: חיסונים, מעקבי שגרה, טיפולים והדרכת מטופלים.</li>
+            <li data-lang="en">Comprehensive nursing care in a primary care clinic: immunizations, routine follow-ups, treatments and patient education.</li>
+            <li data-lang="he">מתן חיסונים לכל הגילאים ומעקב אחר שגרת החיסונים בהתאם להנחיות משרד הבריאות.</li>
+            <li data-lang="en">Administering vaccines across all age groups and monitoring routine immunization schedules according to Ministry of Health guidelines.</li>
+            <li data-lang="he">עבודה שוטפת מול רופאי משפחה וצוות רב-מקצועי בקהילה.</li>
+            <li data-lang="en">Ongoing collaboration with family physicians and a multidisciplinary community care team.</li>
           </ul>
         </div>
       </div>
@@ -557,14 +699,21 @@
       <div class="exp-item">
         <div class="exp-meta">
           <div class="date">2022 — 2024</div>
-          <div class="duration">אשפוז</div>
+          <div class="duration">
+            <span data-lang="he">אשפוז</span>
+            <span data-lang="en">Inpatient</span>
+          </div>
         </div>
         <div class="exp-content">
-          <h3 class="role">אחות מערך אשפוז</h3>
-          <div class="org">בית חולים רפאל</div>
+          <h3 class="role" data-lang="he">אחות מערך אשפוז</h3>
+          <h3 class="role" data-lang="en">Inpatient Ward Nurse</h3>
+          <div class="org" data-lang="he">בית חולים רפאל</div>
+          <div class="org" data-lang="en">Rafael Hospital</div>
           <ul>
-            <li>ניהול רציף של <strong>20-25 קבלות ושחרורים</strong> של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול, מאזן תרופתי מדויק ותקשורת רציפה מול צוות הרופאים.</li>
-            <li><strong>אחריות משמרת</strong> והתנהלות שוטפת מול רופאים וצוות המערך.</li>
+            <li data-lang="he">ניהול רציף של <strong>20-25 קבלות ושחרורים</strong> של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול, מאזן תרופתי מדויק ותקשורת רציפה מול צוות הרופאים.</li>
+            <li data-lang="en">Continuous management of <strong>20–25 surgical admissions and discharges</strong> per shift in a dynamic, high-pressure environment, while maintaining patient safety, precise medication management and ongoing communication with the physician team.</li>
+            <li data-lang="he"><strong>אחריות משמרת</strong> והתנהלות שוטפת מול רופאים וצוות המערך.</li>
+            <li data-lang="en"><strong>Shift responsibility</strong> and day-to-day coordination with physicians and the ward team.</li>
           </ul>
         </div>
       </div>
@@ -572,14 +721,21 @@
       <div class="exp-item">
         <div class="exp-meta">
           <div class="date">2018 — 2022</div>
-          <div class="duration">4 שנים</div>
+          <div class="duration">
+            <span data-lang="he">4 שנים</span>
+            <span data-lang="en">4 Years</span>
+          </div>
         </div>
         <div class="exp-content">
-          <h3 class="role">אחות</h3>
-          <div class="org">הרצליה מדיקל סנטר</div>
+          <h3 class="role" data-lang="he">אחות</h3>
+          <h3 class="role" data-lang="en">Nurse</h3>
+          <div class="org" data-lang="he">הרצליה מדיקל סנטר</div>
+          <div class="org" data-lang="en">Herzliya Medical Center</div>
           <ul>
-            <li>ניהול רציף של <strong>20-25 קבלות ושחרורים</strong> של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול, מאזן תרופתי מדויק ותקשורת רציפה מול צוות הרופאים.</li>
-            <li>אחריות משמרת במרכז רפואי פרטי מוביל, לצד התנהלות שוטפת מול רופאים.</li>
+            <li data-lang="he">ניהול רציף של <strong>20-25 קבלות ושחרורים</strong> של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול, מאזן תרופתי מדויק ותקשורת רציפה מול צוות הרופאים.</li>
+            <li data-lang="en">Continuous management of <strong>20–25 surgical admissions and discharges</strong> per shift in a dynamic, high-pressure environment, while maintaining patient safety, precise medication management and ongoing communication with the physician team.</li>
+            <li data-lang="he">אחריות משמרת במרכז רפואי פרטי מוביל, לצד התנהלות שוטפת מול רופאים.</li>
+            <li data-lang="en">Shift responsibility at a leading private medical center, alongside ongoing coordination with physicians.</li>
           </ul>
         </div>
       </div>
@@ -587,18 +743,29 @@
       <div class="exp-item">
         <div class="exp-meta">
           <div class="date">2015 — 2018</div>
-          <div class="duration">ניהול</div>
+          <div class="duration">
+            <span data-lang="he">ניהול</span>
+            <span data-lang="en">Management</span>
+          </div>
         </div>
         <div class="exp-content">
-          <h3 class="role">אחות אחראית — מרכז בריאות האישה</h3>
-          <div class="org">קופת חולים מאוחדת</div>
+          <h3 class="role" data-lang="he">אחות אחראית — מרכז בריאות האישה</h3>
+          <h3 class="role" data-lang="en">Nurse in Charge — Women's Health Center</h3>
+          <div class="org" data-lang="he">קופת חולים מאוחדת</div>
+          <div class="org" data-lang="en">Meuhedet Health Services</div>
           <ul>
-            <li>ניהול והובלת <strong>צוות רב-מקצועי של כ-8 עובדים</strong>, חלוקת תפקידים, סידורי עבודה והנחיית הצוות.</li>
-            <li><strong>רכזת תחום בריאות היילוד</strong> וניהול המעבדה.</li>
-            <li>הובלת שגרת העבודה של המרכז מול צוותים רפואיים ומנהליים.</li>
+            <li data-lang="he">ניהול והובלת <strong>צוות רב-מקצועי של כ-8 עובדים</strong>, חלוקת תפקידים, סידורי עבודה והנחיית הצוות.</li>
+            <li data-lang="en">Managing and leading a <strong>multidisciplinary team of ~8 employees</strong> — assigning roles, building work schedules and guiding the team.</li>
+            <li data-lang="he"><strong>רכזת תחום בריאות היילוד</strong> וניהול המעבדה.</li>
+            <li data-lang="en"><strong>Newborn health coordinator</strong> and laboratory manager.</li>
+            <li data-lang="he">הובלת שגרת העבודה של המרכז מול צוותים רפואיים ומנהליים.</li>
+            <li data-lang="en">Leading the center's daily operations alongside medical and administrative teams.</li>
           </ul>
-          <div class="achievement">
+          <div class="achievement" data-lang="he">
             <strong>במקביל:</strong> אחות במוקד חירום פרונטלי ברפואה ראשונית ורפואת משפחה, קופ״ח מאוחדת — טיפול במקרים דחופים בקהילה.
+          </div>
+          <div class="achievement" data-lang="en">
+            <strong>In parallel:</strong> Nurse at a walk-in urgent care center for primary and family medicine, Meuhedet Health Services — treating urgent cases in the community.
           </div>
         </div>
       </div>
@@ -606,14 +773,21 @@
       <div class="exp-item">
         <div class="exp-meta">
           <div class="date">2013 — 2015</div>
-          <div class="duration">בריאות הנפש</div>
+          <div class="duration">
+            <span data-lang="he">בריאות הנפש</span>
+            <span data-lang="en">Mental Health</span>
+          </div>
         </div>
         <div class="exp-content">
-          <h3 class="role">אחות</h3>
-          <div class="org">המרכז לבריאות הנפש שער מנשה</div>
+          <h3 class="role" data-lang="he">אחות</h3>
+          <h3 class="role" data-lang="en">Nurse</h3>
+          <div class="org" data-lang="he">המרכז לבריאות הנפש שער מנשה</div>
+          <div class="org" data-lang="en">Sha'ar Menashe Mental Health Center</div>
           <ul>
-            <li><strong>אחראית משמרת</strong> במחלקת אשפוז פסיכיאטרית.</li>
-            <li>אחראית איזון תרופתי.</li>
+            <li data-lang="he"><strong>אחראית משמרת</strong> במחלקת אשפוז פסיכיאטרית.</li>
+            <li data-lang="en"><strong>Shift supervisor</strong> in a psychiatric inpatient ward.</li>
+            <li data-lang="he">אחראית איזון תרופתי.</li>
+            <li data-lang="en">Responsible for medication balancing and management.</li>
           </ul>
         </div>
       </div>
@@ -626,24 +800,31 @@
         <div>
           <div class="section-header">
             <span class="section-num">02 —</span>
-            <h2 class="section-title">השכלה</h2>
+            <h2 class="section-title" data-lang="he">השכלה</h2>
+            <h2 class="section-title" data-lang="en">Education</h2>
           </div>
 
           <div class="edu-item">
-            <div class="edu-year">2018 — 2021</div>
+            <div class="edu-year range">2018 — 2021</div>
             <div class="edu-body">
-              <div class="edu-name">B.A. מנהל מערכות בריאות</div>
-              <div class="edu-place">אוניברסיטת אריאל · מסלול מצטיינים</div>
-              <div class="edu-note">ממוצע 92 · פרויקט גמר בטכנולוגיות מידע בבריאות הציבור · התמחות במערכות מידע</div>
+              <div class="edu-name" data-lang="he">B.A. מנהל מערכות בריאות</div>
+              <div class="edu-name" data-lang="en">B.A. in Health Systems Management</div>
+              <div class="edu-place" data-lang="he">אוניברסיטת אריאל · מסלול מצטיינים</div>
+              <div class="edu-place" data-lang="en">Ariel University · Honors Track</div>
+              <div class="edu-note" data-lang="he">ממוצע 92 · פרויקט גמר בטכנולוגיות מידע בבריאות הציבור · התמחות במערכות מידע</div>
+              <div class="edu-note" data-lang="en">GPA 92 · Final project in public health information technologies · Specialization in information systems</div>
             </div>
           </div>
 
           <div class="edu-item">
-            <div class="edu-year">2010 — 2013</div>
+            <div class="edu-year range">2010 — 2013</div>
             <div class="edu-body">
-              <div class="edu-name">לימודי סיעוד — אחות מוסמכת</div>
-              <div class="edu-place">בית הספר לאחיות · בי״ח לניאדו</div>
-              <div class="edu-note">סיום התנסויות קליניות בהצטיינות (90+)</div>
+              <div class="edu-name" data-lang="he">לימודי סיעוד — אחות מוסמכת</div>
+              <div class="edu-name" data-lang="en">Nursing Studies — Registered Nurse</div>
+              <div class="edu-place" data-lang="he">בית הספר לאחיות · בי״ח לניאדו</div>
+              <div class="edu-place" data-lang="en">School of Nursing · Laniado Hospital</div>
+              <div class="edu-note" data-lang="he">סיום התנסויות קליניות בהצטיינות (90+)</div>
+              <div class="edu-note" data-lang="en">Completed clinical placements with distinction (90+)</div>
             </div>
           </div>
         </div>
@@ -651,30 +832,46 @@
         <div>
           <div class="section-header">
             <span class="section-num">03 —</span>
-            <h2 class="section-title">קורסים והסמכות</h2>
+            <h2 class="section-title" data-lang="he">קורסים והסמכות</h2>
+            <h2 class="section-title" data-lang="en">Courses &amp; Certifications</h2>
           </div>
 
           <div class="edu-item">
-            <div class="edu-year">מאוחדת</div>
+            <div class="edu-year">
+              <span data-lang="he">מאוחדת</span>
+              <span data-lang="en">Meuhedet</span>
+            </div>
             <div class="edu-body">
-              <div class="edu-name">קורס ליווי הריון</div>
-              <div class="edu-place">קופת חולים מאוחדת</div>
+              <div class="edu-name" data-lang="he">קורס ליווי הריון</div>
+              <div class="edu-name" data-lang="en">Pregnancy Support Course</div>
+              <div class="edu-place" data-lang="he">קופת חולים מאוחדת</div>
+              <div class="edu-place" data-lang="en">Meuhedet Health Services</div>
             </div>
           </div>
 
           <div class="edu-item">
-            <div class="edu-year">מאוחדת</div>
+            <div class="edu-year">
+              <span data-lang="he">מאוחדת</span>
+              <span data-lang="en">Meuhedet</span>
+            </div>
             <div class="edu-body">
-              <div class="edu-name">קורס אחיות בקהילה</div>
-              <div class="edu-place">קופת חולים מאוחדת</div>
+              <div class="edu-name" data-lang="he">קורס אחיות בקהילה</div>
+              <div class="edu-name" data-lang="en">Community Nursing Course</div>
+              <div class="edu-place" data-lang="he">קופת חולים מאוחדת</div>
+              <div class="edu-place" data-lang="en">Meuhedet Health Services</div>
             </div>
           </div>
 
           <div class="edu-item">
-            <div class="edu-year">מד״א</div>
+            <div class="edu-year">
+              <span data-lang="he">מד״א</span>
+              <span data-lang="en">MDA</span>
+            </div>
             <div class="edu-body">
-              <div class="edu-name">ACLS — החייאה מתקדמת (Advanced Cardiac Life Support)</div>
-              <div class="edu-place">מגן דוד אדום · הסמכה קלינית למענה במצבי חירום לב-ריאה</div>
+              <div class="edu-name" data-lang="he">ACLS — החייאה מתקדמת (Advanced Cardiac Life Support)</div>
+              <div class="edu-name" data-lang="en">ACLS — Advanced Cardiac Life Support</div>
+              <div class="edu-place" data-lang="he">מגן דוד אדום · הסמכה קלינית למענה במצבי חירום לב-ריאה</div>
+              <div class="edu-place" data-lang="en">Magen David Adom · Clinical certification for cardiopulmonary emergency response</div>
             </div>
           </div>
         </div>
@@ -689,25 +886,37 @@
         <div>
           <div class="section-header">
             <span class="section-num">04 —</span>
-            <h2 class="section-title">כישורים</h2>
+            <h2 class="section-title" data-lang="he">כישורים</h2>
+            <h2 class="section-title" data-lang="en">Skills</h2>
           </div>
 
           <div class="skill-block">
-            <div class="skill-label">חוזקות מקצועיות</div>
-            <div class="skill-content">
+            <div class="skill-label" data-lang="he">חוזקות מקצועיות</div>
+            <div class="skill-label" data-lang="en">Key Strengths</div>
+            <div class="skill-content" data-lang="he">
               זיהוי ומיון מהיר של מצבים דחופים ומתן מענה מקצועי תחת עומס. <strong>ייצוגיות וכושר ביטוי</strong>, תקשורת בין-אישית גבוהה ותודעת שירות מפותחת.
+            </div>
+            <div class="skill-content" data-lang="en">
+              Rapid identification and triage of urgent cases with professional response under pressure. <strong>Strong presence and articulate communication</strong>, excellent interpersonal skills and a highly developed service orientation.
             </div>
           </div>
 
           <div class="skill-block">
-            <div class="skill-label">כישורים מרכזיים</div>
+            <div class="skill-label" data-lang="he">כישורים מרכזיים</div>
+            <div class="skill-label" data-lang="en">Core Skills</div>
             <div class="skill-tags">
-              <span class="skill-tag">קבלת החלטות במיון וטריאז'</span>
-              <span class="skill-tag">ניהול מצבי עומס וריבוי משימות</span>
-              <span class="skill-tag">תקשורת בין-אישית ושירותיות גבוהה</span>
-              <span class="skill-tag">עבודת צוות וסביבה דינמית</span>
-              <span class="skill-tag">הטמעת תהליכים והדרכת מטופלים</span>
-              <span class="skill-tag">ניהול סיכונים קליניים ובטיחות המטופל</span>
+              <span class="skill-tag" data-lang="he">קבלת החלטות במיון וטריאז'</span>
+              <span class="skill-tag" data-lang="en">Triage &amp; Clinical Decision-Making</span>
+              <span class="skill-tag" data-lang="he">ניהול מצבי עומס וריבוי משימות</span>
+              <span class="skill-tag" data-lang="en">High-Pressure &amp; Multi-Tasking Management</span>
+              <span class="skill-tag" data-lang="he">תקשורת בין-אישית ושירותיות גבוהה</span>
+              <span class="skill-tag" data-lang="en">Interpersonal Communication &amp; Service Excellence</span>
+              <span class="skill-tag" data-lang="he">עבודת צוות וסביבה דינמית</span>
+              <span class="skill-tag" data-lang="en">Teamwork in Dynamic Environments</span>
+              <span class="skill-tag" data-lang="he">הטמעת תהליכים והדרכת מטופלים</span>
+              <span class="skill-tag" data-lang="en">Process Implementation &amp; Patient Education</span>
+              <span class="skill-tag" data-lang="he">ניהול סיכונים קליניים ובטיחות המטופל</span>
+              <span class="skill-tag" data-lang="en">Clinical Risk Management &amp; Patient Safety</span>
             </div>
           </div>
         </div>
@@ -715,18 +924,22 @@
         <div>
           <div class="section-header">
             <span class="section-num">05 —</span>
-            <h2 class="section-title">מערכות וכלים</h2>
+            <h2 class="section-title" data-lang="he">מערכות וכלים</h2>
+            <h2 class="section-title" data-lang="en">Systems &amp; Tools</h2>
           </div>
 
           <div class="skill-block">
-            <div class="skill-label">מערכות מידע רפואיות</div>
+            <div class="skill-label" data-lang="he">מערכות מידע רפואיות</div>
+            <div class="skill-label" data-lang="en">Medical Information Systems</div>
             <div class="skill-tags">
               <span class="skill-tag">Clicks</span>
               <span class="skill-tag">Easymed</span>
               <span class="skill-tag">SAP</span>
               <span class="skill-tag">AS400</span>
-              <span class="skill-tag">קמיליון</span>
-              <span class="skill-tag">תוכנות ניהול מעבדה</span>
+              <span class="skill-tag" data-lang="he">קמיליון</span>
+              <span class="skill-tag" data-lang="en">Chameleon</span>
+              <span class="skill-tag" data-lang="he">תוכנות ניהול מעבדה</span>
+              <span class="skill-tag" data-lang="en">Lab Management Software</span>
               <span class="skill-tag">CRM</span>
             </div>
           </div>
@@ -741,8 +954,10 @@
           </div>
 
           <div class="skill-block">
-            <div class="skill-label">המלצות</div>
-            <div class="skill-content">המלצות מפורטות ממנהלים ישירים יסופקו לפי דרישה.</div>
+            <div class="skill-label" data-lang="he">המלצות</div>
+            <div class="skill-label" data-lang="en">References</div>
+            <div class="skill-content" data-lang="he">המלצות מפורטות ממנהלים ישירים יסופקו לפי דרישה.</div>
+            <div class="skill-content" data-lang="en">Detailed references from direct managers available upon request.</div>
           </div>
         </div>
 
@@ -758,6 +973,28 @@
   </footer>
 
 </div>
+
+<script>
+  function setLang(lang) {
+    const html = document.documentElement;
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+    document.getElementById('btn-he').classList.toggle('active', lang === 'he');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.title = lang === 'he' ? 'מיכל אבידן — קורות חיים' : 'Michal Avidan — CV';
+    try { localStorage.setItem('michal-cv-lang', lang); } catch (e) {}
+  }
+
+  (function init() {
+    let lang = 'he';
+    try {
+      const saved = localStorage.getItem('michal-cv-lang');
+      if (saved === 'he' || saved === 'en') lang = saved;
+      else if (navigator.language && navigator.language.toLowerCase().startsWith('en')) lang = 'en';
+    } catch (e) {}
+    setLang(lang);
+  })();
+</script>
 
 </body>
 </html>
