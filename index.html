@@ -4,997 +4,524 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מיכל אבידן — קורות חיים</title>
+<meta name="description" content="מיכל אבידן — אחות מוסמכת (RN, B.A.) · קורות חיים">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --charcoal: #36454f;
-    --charcoal-soft: #4a5b67;
-    --slate: #708090;
-    --slate-light: #8c9aa6;
-    --light-gray: #d3d3d3;
-    --bg-gray: #f4f5f6;
-    --hairline: #e5e7e9;
-    --white: #ffffff;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    background: var(--bg-gray);
-    color: var(--charcoal);
-    font-family: 'Assistant', sans-serif;
-    font-weight: 300;
-    line-height: 1.65;
-    font-size: 15px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  html[lang="en"] body {
-    font-family: 'Inter', 'Assistant', sans-serif;
-  }
-
-  /* ===== LANGUAGE VISIBILITY ===== */
-  html[lang="he"] [data-lang="en"] { display: none !important; }
-  html[lang="en"] [data-lang="he"] { display: none !important; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    padding: 40px 20px;
+    background: #e9e6e0;
+    font-family: 'Heebo', Helvetica, sans-serif;
+    color: #1d1c1a;
     min-height: 100vh;
   }
 
-  .page {
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--white);
-    box-shadow:
-      0 1px 2px rgba(54, 69, 79, 0.04),
-      0 8px 30px rgba(54, 69, 79, 0.08);
-  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #2c6570; }
 
-  /* ===== LANGUAGE TOGGLE ===== */
-  .lang-toggle {
-    position: fixed;
-    top: 20px;
-    inset-inline-end: 20px;
-    z-index: 100;
+  .wrap { padding: 28px 16px 60px; }
+
+  .toolbar {
+    max-width: 794px;
+    margin: 0 auto 18px;
     display: flex;
-    background: var(--white);
-    border: 1px solid var(--hairline);
-    box-shadow: 0 2px 10px rgba(54, 69, 79, 0.10);
-  }
-
-  .lang-toggle button {
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    padding: 7px 16px;
-    border: none;
-    background: transparent;
-    color: var(--slate);
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-
-  .lang-toggle button:hover {
-    color: var(--charcoal);
-  }
-
-  .lang-toggle button.active {
-    background: var(--charcoal);
-    color: var(--white);
-  }
-
-  /* ===== PRINT / PDF BUTTON ===== */
-  .actions {
-    position: fixed;
-    bottom: 20px;
-    inset-inline-end: 20px;
-    z-index: 100;
-  }
-
-  .actions button {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 11px 18px;
-    background: var(--charcoal);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(54, 69, 79, 0.25);
-    transition: background 0.15s ease;
-  }
-
-  .actions button:hover {
-    background: var(--charcoal-soft);
-  }
-
-  .actions button svg {
-    width: 15px;
-    height: 15px;
-    flex-shrink: 0;
-    stroke: var(--white);
-  }
-
-  /* ===== HEADER ===== */
-  .header {
-    padding: 70px 80px 50px;
-    border-bottom: 1px solid var(--hairline);
-    position: relative;
-  }
-
-  .header::before {
-    content: '';
-    position: absolute;
-    top: 70px;
-    inset-inline-start: 0;
-    width: 4px;
-    height: 80px;
-    background: var(--charcoal);
-  }
-
-  .name-block {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-  }
-
-  .name {
-    font-size: 52px;
-    font-weight: 200;
-    color: var(--charcoal);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .name strong {
-    font-weight: 700;
-  }
-
-  .credential {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--slate);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    border: 1px solid var(--light-gray);
-    padding: 6px 14px;
-  }
-
-  .role-line {
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--charcoal-soft);
-    letter-spacing: 0.02em;
-    margin-bottom: 32px;
-    max-width: 640px;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--hairline);
-    padding-top: 24px;
-  }
-
-  .contact-item {
-    padding-inline-end: 24px;
-    border-inline-end: 1px solid var(--hairline);
-  }
-
-  .contact-item:last-child {
-    border-inline-end: none;
-  }
-
-  .contact-item + .contact-item {
-    padding-inline-start: 24px;
-  }
-
-  .contact-label {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--slate);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .contact-value {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--charcoal);
-  }
-
-  .contact-value.ltr {
-    direction: ltr;
-    unicode-bidi: bidi-override;
-    text-align: end;
-  }
-
-  html[lang="en"] .contact-value.ltr {
-    text-align: start;
-  }
-
-  .contact-link {
-    display: inline-flex;
-    align-items: center;
     gap: 8px;
-    color: var(--charcoal);
-    text-decoration: none;
-    transition: color 0.15s ease;
+    justify-content: flex-end;
   }
 
-  .contact-link:hover {
-    color: var(--slate);
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .1em;
+    padding: 7px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid #c9c3b8;
+    background: transparent;
+    color: #4a463f;
   }
 
-  .contact-link svg {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-    stroke: var(--slate);
-    transition: stroke 0.15s ease;
+  .btn.active {
+    background: #1d1c1a;
+    border-color: #1d1c1a;
+    color: #faf8f4;
   }
 
-  .contact-link:hover svg {
-    stroke: var(--charcoal);
+  .btn-print {
+    border: 1px solid #2c6570;
+    background: #2c6570;
+    color: #fff;
   }
 
-  /* ===== CONTENT ===== */
-  .content {
-    padding: 50px 80px 60px;
+  .sheet {
+    max-width: 794px;
+    margin: 0 auto;
+    background: #faf8f4;
+    box-shadow: 0 20px 50px rgba(0,0,0,.12);
+    padding: 56px 60px 48px;
   }
 
-  /* ===== SUMMARY ===== */
-  .summary {
-    margin-bottom: 56px;
-    padding: 32px 36px;
-    background: var(--bg-gray);
-    border-inline-start: 3px solid var(--charcoal);
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+    border-bottom: 2px solid #1d1c1a;
+    padding-bottom: 24px;
   }
 
-  .summary p {
-    font-size: 16px;
-    line-height: 1.85;
-    color: var(--charcoal-soft);
+  h1 {
+    font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -.01em;
   }
 
-  .summary p strong {
-    color: var(--charcoal);
-    font-weight: 600;
+  h1 .last { font-weight: 700; }
+
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: .22em;
+    color: #6f6a63;
+    margin-top: 9px;
   }
 
-  /* ===== SECTION ===== */
-  .section {
-    margin-bottom: 50px;
+  html[lang="he"] .kicker { text-align: right; }
+  html[lang="en"] .kicker { text-align: left; }
+
+  .tagline {
+    font-size: 15.5px;
+    line-height: 1.5;
+    margin-top: 14px;
+    max-width: 46ch;
+    color: #332f2b;
   }
 
-  .section-header {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 13.5px;
+    color: #4a463f;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .summary {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 18px;
+    line-height: 1.62;
+    margin: 24px 0 0;
+    color: #2a2724;
+  }
+
+  .sec-head {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 36px;
+    gap: 12px;
+    margin: 38px 0 16px;
   }
 
-  .section-num {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--slate);
-    letter-spacing: 0.1em;
-    min-width: 28px;
+  .sec-head.first { gap: 14px; margin: 36px 0 4px; }
+
+  .sec-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #2c6570;
   }
 
-  .section-title {
-    font-size: 13px;
+  .sec-head h2 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 20px;
     font-weight: 700;
-    color: var(--charcoal);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
   }
 
-  .section-rule {
-    flex: 1;
-    height: 1px;
-    background: var(--hairline);
-  }
+  .sec-head.first h2 { font-size: 23px; }
 
-  /* ===== EXPERIENCE ===== */
-  .exp-item {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 40px;
-    padding: 28px 0;
-    border-top: 1px solid var(--hairline);
-  }
+  .sec-rule { flex: 1; height: 1px; background: #ded9d1; }
 
-  .exp-item:first-of-type {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .exp-meta .date {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--charcoal);
-    letter-spacing: 0.05em;
-    line-height: 1.4;
-    direction: ltr;
-    unicode-bidi: isolate;
-    text-align: start;
-    white-space: nowrap;
-  }
-
-  .exp-meta .duration {
+  .sec-kicker {
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    font-weight: 400;
-    color: var(--slate);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 4px;
+    letter-spacing: .16em;
+    color: #9a948b;
   }
 
-  .exp-content .role {
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--charcoal);
-    line-height: 1.3;
-    margin-bottom: 4px;
-    letter-spacing: -0.01em;
+  .jobs { display: flex; flex-direction: column; }
+
+  .job {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-top: 1px solid #eae7e0;
   }
 
-  .exp-content .org {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--slate);
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px dotted var(--light-gray);
+  .job-when { padding-top: 3px; }
+
+  .job-years {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: #57534d;
   }
 
-  .exp-content ul {
-    list-style: none;
+  .job-tag {
+    font-size: 11.5px;
+    letter-spacing: .06em;
+    color: #9a948b;
+    margin-top: 5px;
   }
 
-  .exp-content li {
-    position: relative;
-    padding-inline-start: 18px;
-    margin-bottom: 8px;
+  .job-body {
+    border-inline-start: 2px solid #2c6570;
+    padding-inline-start: 22px;
+  }
+
+  .job-body h3 { font-size: 19px; font-weight: 700; line-height: 1.3; }
+
+  .job-org { font-size: 15px; color: #57534d; margin-top: 3px; }
+
+  .job-body ul {
+    margin: 11px 0 0;
+    padding-inline-start: 17px;
+    font-size: 15px;
+    line-height: 1.62;
+    color: #332f2b;
+  }
+
+  .job-body li { margin-bottom: 5px; }
+
+  .job-note {
     font-size: 14.5px;
-    line-height: 1.7;
-    color: var(--charcoal-soft);
-    font-weight: 400;
+    line-height: 1.55;
+    color: #4a463f;
+    margin: 10px 0 0;
+    padding-inline-start: 17px;
   }
 
-  .exp-content li::before {
-    content: '';
-    position: absolute;
-    inset-inline-start: 0;
-    top: 11px;
-    width: 8px;
-    height: 1px;
-    background: var(--slate);
-  }
-
-  .exp-content li strong {
-    color: var(--charcoal);
-    font-weight: 600;
-  }
-
-  .achievement {
-    margin-top: 12px;
-    padding: 12px 16px;
-    background: var(--bg-gray);
-    font-size: 13.5px;
-    color: var(--charcoal-soft);
-    border-inline-start: 2px solid var(--slate);
-  }
-
-  .achievement strong {
-    color: var(--charcoal);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-  }
-
-  /* ===== TWO COLUMN ===== */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
+    margin-top: 38px;
   }
 
-  /* ===== EDUCATION ===== */
-  .edu-item {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 20px;
-    padding: 14px 0;
-    border-top: 1px solid var(--hairline);
+  .two-col .sec-head { margin: 0 0 15px; }
+
+  .edu-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .edu-years {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #6f6a63;
   }
 
-  .edu-item:first-child {
-    border-top: none;
-  }
+  .edu-list h3 { font-size: 16px; font-weight: 700; margin: 3px 0 0; }
 
-  .edu-year {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--charcoal);
-    letter-spacing: 0.05em;
-    padding-top: 2px;
-  }
+  .edu-school { font-size: 14px; color: #57534d; line-height: 1.5; margin-top: 2px; }
 
-  .edu-year.range {
-    direction: ltr;
-    unicode-bidi: isolate;
-    text-align: start;
-    white-space: nowrap;
-  }
+  .edu-detail { font-size: 13.5px; color: #6f6a63; line-height: 1.5; margin-top: 3px; }
 
-  .edu-body .edu-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--charcoal);
-    line-height: 1.3;
-    margin-bottom: 2px;
-  }
+  .course-list { display: flex; flex-direction: column; gap: 14px; }
 
-  .edu-body .edu-place {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--slate);
-  }
-
-  .edu-body .edu-note {
-    font-size: 12.5px;
-    font-weight: 400;
-    color: var(--charcoal-soft);
-    margin-top: 4px;
-    line-height: 1.55;
-  }
-
-  /* ===== SKILLS ===== */
-  .skill-block {
-    margin-bottom: 22px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .skill-block:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .skill-block .skill-label {
+  .course-badge {
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    font-weight: 700;
-    color: var(--slate);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
+    letter-spacing: .12em;
+    color: #9a948b;
   }
 
-  .skill-block .skill-content {
-    font-size: 14px;
-    line-height: 1.65;
-    color: var(--charcoal-soft);
-    font-weight: 400;
+  .course-list h3 { font-size: 15.5px; font-weight: 700; margin: 3px 0 0; }
+
+  .course-org { font-size: 13.5px; color: #57534d; line-height: 1.5; margin-top: 2px; }
+
+  .strengths { font-size: 15px; line-height: 1.6; margin: 0 0 14px; color: #332f2b; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 7px; }
+
+  .pill {
+    font-size: 13.5px;
+    border: 1px solid #cdc7bc;
+    padding: 5px 11px;
+    border-radius: 999px;
   }
 
-  .skill-block .skill-content strong {
-    color: var(--charcoal);
-    font-weight: 600;
-  }
-
-  .skill-tags {
+  .systems {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 10px;
+    gap: 7px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: #2c6570;
   }
 
-  .skill-tag {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--charcoal);
-    background: var(--bg-gray);
-    padding: 4px 12px;
-    border: 1px solid var(--hairline);
-  }
+  .systems span { background: #e6efef; padding: 5px 9px; }
 
-  /* ===== FOOTER ===== */
-  .footer {
-    padding: 30px 80px;
-    border-top: 1px solid var(--hairline);
+  footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--bg-gray);
-  }
-
-  .footer-meta {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--slate);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    gap: 16px;
+    border-top: 1px solid #ded9d1;
+    margin-top: 36px;
+    padding-top: 13px;
+    font-size: 12.5px;
+    color: #8d8780;
   }
 
   .footer-mark {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--charcoal);
-    letter-spacing: 0.2em;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: .1em;
   }
 
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 760px) {
-    body { padding: 0; padding-top: 56px; }
-    .page { box-shadow: none; }
-    .lang-toggle { top: 10px; inset-inline-end: 10px; }
-    .lang-toggle button { padding: 6px 13px; }
-    .actions { bottom: 14px; inset-inline-end: 14px; }
-    .actions button { padding: 9px 14px; font-size: 12px; }
-    .header { padding: 40px 28px 32px; }
-    .header::before { top: 40px; }
-    .name { font-size: 38px; }
-    .content { padding: 35px 28px 40px; }
-    .footer { padding: 24px 28px; flex-direction: column; gap: 8px; }
-    .summary { padding: 22px 24px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 16px; }
-    .contact-item {
-      padding-inline-end: 0;
-      padding-bottom: 16px;
-      border-inline-end: none;
-      border-bottom: 1px solid var(--hairline);
-    }
-    .contact-item + .contact-item { padding-inline-start: 0; }
-    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .exp-item { grid-template-columns: 1fr; gap: 12px; }
-    .two-col { grid-template-columns: 1fr; gap: 40px; }
+  @media (max-width: 700px) {
+    .sheet { padding: 34px 24px 32px; }
+    header { grid-template-columns: 1fr; align-items: start; gap: 18px; }
+    h1 { font-size: 38px; }
+    .job { grid-template-columns: 1fr; gap: 10px; }
+    .two-col { grid-template-columns: 1fr; }
   }
 
-  /* ===== PRINT ===== */
   @media print {
-    @page { size: A4; margin: 12mm; }
-    body { padding: 0; background: white; }
-    .page { box-shadow: none; max-width: 100%; }
-    .lang-toggle, .actions { display: none !important; }
-    .header { padding: 40px 50px 30px; }
-    .content { padding: 35px 50px; }
-    .footer { padding: 20px 50px; }
-    .section { margin-bottom: 30px; page-break-inside: avoid; }
-    .exp-item { page-break-inside: avoid; }
-    .summary { page-break-inside: avoid; }
-    .summary, .achievement, .skill-tag, .footer {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
+    body { background: #fff; }
+    .no-print { display: none !important; }
+    .wrap { padding: 0; }
+    .sheet {
+      box-shadow: none !important;
+      margin: 0 !important;
+      max-width: none !important;
+      padding: 0 !important;
     }
+    .job { break-inside: avoid; }
+    @page { size: A4; margin: 12mm; }
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<!-- LANGUAGE TOGGLE -->
-<div class="lang-toggle" role="group" aria-label="Language">
-  <button id="btn-he" type="button" onclick="setLang('he')">עברית</button>
-  <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
-</div>
+  <div class="toolbar no-print">
+    <button id="btn-he" class="btn" type="button" onclick="setLang('he')">עברית</button>
+    <button id="btn-en" class="btn" type="button" onclick="setLang('en')">EN</button>
+    <button id="btn-print" class="btn btn-print" type="button" onclick="window.print()">הדפסה / &#x202A;PDF&#x202C;</button>
+  </div>
 
-<!-- PRINT / PDF -->
-<div class="actions">
-  <button type="button" onclick="window.print()">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-    <span data-lang="he">הדפסה / PDF</span>
-    <span data-lang="en">Print / PDF</span>
-  </button>
-</div>
-
-<div class="page">
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="name-block">
-      <h1 class="name">
-        <span data-lang="he">מיכל <strong>אבידן</strong></span>
-        <span data-lang="en">Michal <strong>Avidan</strong></span>
-      </h1>
-      <span class="credential">RN · B.A.</span>
-    </div>
-    <p class="role-line" data-lang="he">אחות מוסמכת · טריאז', אשפוז ורפואה דחופה בקהילה · שליטה מצוינת במערכות מידע רפואיות</p>
-    <p class="role-line" data-lang="en">Registered Nurse · Triage, Inpatient &amp; Community Urgent Care · Highly Proficient in Medical Information Systems</p>
-
-    <div class="contact-grid">
-      <div class="contact-item">
-        <div class="contact-label">Telephone</div>
-        <div class="contact-value ltr">
-          <a class="contact-link" href="tel:+972509466500">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>050-9466500</span>
-          </a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Email</div>
-        <div class="contact-value ltr">
-          <a class="contact-link" href="mailto:michalie.avidan@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>michalie.avidan@gmail.com</span>
-          </a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Location</div>
-        <div class="contact-value">
-          <span data-lang="he">זכרון יעקב</span>
-          <span data-lang="en">Zikhron Ya'akov, Israel</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- CONTENT -->
-  <main class="content">
-
-    <!-- SUMMARY -->
-    <section class="summary">
-      <p data-lang="he">
-        <strong>אחות מוסמכת</strong> בעלת ידע קליני רחב, יכולת <strong>זיהוי ומיון (טריאז') מהיר במצבי עומס</strong>, תודעת שירות גבוהה ושליטה מצוינת ב<strong>מערכות מידע רפואיות</strong>. בעלת ניסיון עשיר בעבודה פרונטלית וטראומטית/דחופה, מתן מענה אנושי ומקצועי והובלת טיפול איכותי בקהילה ובאשפוז.
-      </p>
-      <p data-lang="en">
-        <strong>Registered Nurse</strong> with broad clinical knowledge, skilled in <strong>rapid triage and assessment under pressure</strong>, with a strong service orientation and excellent command of <strong>medical information systems</strong>. Extensive experience in front-line and trauma/urgent care, delivering professional, compassionate care and leading high-quality treatment in both community and inpatient settings.
-      </p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-num">01 —</span>
-        <h2 class="section-title" data-lang="he">ניסיון מקצועי</h2>
-        <h2 class="section-title" data-lang="en">Professional Experience</h2>
-        <span class="section-rule"></span>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <div class="date">2025 — 2026</div>
-          <div class="duration">
-            <span data-lang="he">קהילה</span>
-            <span data-lang="en">Community</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <h3 class="role" data-lang="he">אחות קהילה וחיסונים</h3>
-          <h3 class="role" data-lang="en">Community &amp; Immunization Nurse</h3>
-          <div class="org" data-lang="he">קופת חולים מכבי</div>
-          <div class="org" data-lang="en">Maccabi Health Services</div>
-          <ul>
-            <li data-lang="he">טיפול סיעודי כוללני במרפאה ראשונית: חיסונים, מעקבי שגרה, טיפולים והדרכת מטופלים.</li>
-            <li data-lang="en">Comprehensive nursing care in a primary care clinic: immunizations, routine follow-ups, treatments and patient education.</li>
-            <li data-lang="he">מתן חיסונים לכל הגילאים ומעקב אחר שגרת החיסונים בהתאם להנחיות משרד הבריאות.</li>
-            <li data-lang="en">Administering vaccines across all age groups and monitoring routine immunization schedules according to Ministry of Health guidelines.</li>
-            <li data-lang="he">עבודה שוטפת מול רופאי משפחה וצוות רב-מקצועי בקהילה.</li>
-            <li data-lang="en">Ongoing collaboration with family physicians and a multidisciplinary community care team.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <div class="date">2022 — 2024</div>
-          <div class="duration">
-            <span data-lang="he">אשפוז</span>
-            <span data-lang="en">Inpatient</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <h3 class="role" data-lang="he">אחות מערך אשפוז</h3>
-          <h3 class="role" data-lang="en">Inpatient Ward Nurse</h3>
-          <div class="org" data-lang="he">בית חולים רפאל</div>
-          <div class="org" data-lang="en">Rafael Hospital</div>
-          <ul>
-            <li data-lang="he">ניהול רציף של <strong>20-25 קבלות ושחרורים</strong> של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול, מאזן תרופתי מדויק ותקשורת רציפה מול צוות הרופאים.</li>
-            <li data-lang="en">Continuous management of <strong>20–25 surgical admissions and discharges</strong> per shift in a dynamic, high-pressure environment, while maintaining patient safety, precise medication management and ongoing communication with the physician team.</li>
-            <li data-lang="he"><strong>אחריות משמרת</strong> והתנהלות שוטפת מול רופאים וצוות המערך.</li>
-            <li data-lang="en"><strong>Shift responsibility</strong> and day-to-day coordination with physicians and the ward team.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <div class="date">2018 — 2022</div>
-          <div class="duration">
-            <span data-lang="he">4 שנים</span>
-            <span data-lang="en">4 Years</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <h3 class="role" data-lang="he">אחות</h3>
-          <h3 class="role" data-lang="en">Nurse</h3>
-          <div class="org" data-lang="he">הרצליה מדיקל סנטר</div>
-          <div class="org" data-lang="en">Herzliya Medical Center</div>
-          <ul>
-            <li data-lang="he">ניהול רציף של <strong>20-25 קבלות ושחרורים</strong> של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול, מאזן תרופתי מדויק ותקשורת רציפה מול צוות הרופאים.</li>
-            <li data-lang="en">Continuous management of <strong>20–25 surgical admissions and discharges</strong> per shift in a dynamic, high-pressure environment, while maintaining patient safety, precise medication management and ongoing communication with the physician team.</li>
-            <li data-lang="he">אחריות משמרת במרכז רפואי פרטי מוביל, לצד התנהלות שוטפת מול רופאים.</li>
-            <li data-lang="en">Shift responsibility at a leading private medical center, alongside ongoing coordination with physicians.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <div class="date">2015 — 2018</div>
-          <div class="duration">
-            <span data-lang="he">ניהול</span>
-            <span data-lang="en">Management</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <h3 class="role" data-lang="he">אחות אחראית — מרכז בריאות האישה</h3>
-          <h3 class="role" data-lang="en">Nurse in Charge — Women's Health Center</h3>
-          <div class="org" data-lang="he">קופת חולים מאוחדת</div>
-          <div class="org" data-lang="en">Meuhedet Health Services</div>
-          <ul>
-            <li data-lang="he">ניהול והובלת <strong>צוות רב-מקצועי של כ-8 עובדים</strong>, חלוקת תפקידים, סידורי עבודה והנחיית הצוות.</li>
-            <li data-lang="en">Managing and leading a <strong>multidisciplinary team of ~8 employees</strong> — assigning roles, building work schedules and guiding the team.</li>
-            <li data-lang="he"><strong>רכזת תחום בריאות היילוד</strong> וניהול המעבדה.</li>
-            <li data-lang="en"><strong>Newborn health coordinator</strong> and laboratory manager.</li>
-            <li data-lang="he">הובלת שגרת העבודה של המרכז מול צוותים רפואיים ומנהליים.</li>
-            <li data-lang="en">Leading the center's daily operations alongside medical and administrative teams.</li>
-          </ul>
-          <div class="achievement" data-lang="he">
-            <strong>במקביל:</strong> אחות במוקד חירום פרונטלי ברפואה ראשונית ורפואת משפחה, קופ״ח מאוחדת — טיפול במקרים דחופים בקהילה.
-          </div>
-          <div class="achievement" data-lang="en">
-            <strong>In parallel:</strong> Nurse at a walk-in urgent care center for primary and family medicine, Meuhedet Health Services — treating urgent cases in the community.
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <div class="date">2013 — 2015</div>
-          <div class="duration">
-            <span data-lang="he">בריאות הנפש</span>
-            <span data-lang="en">Mental Health</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <h3 class="role" data-lang="he">אחות</h3>
-          <h3 class="role" data-lang="en">Nurse</h3>
-          <div class="org" data-lang="he">המרכז לבריאות הנפש שער מנשה</div>
-          <div class="org" data-lang="en">Sha'ar Menashe Mental Health Center</div>
-          <ul>
-            <li data-lang="he"><strong>אחראית משמרת</strong> במחלקת אשפוז פסיכיאטרית.</li>
-            <li data-lang="en"><strong>Shift supervisor</strong> in a psychiatric inpatient ward.</li>
-            <li data-lang="he">אחראית איזון תרופתי.</li>
-            <li data-lang="en">Responsible for medication balancing and management.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION & CERTIFICATIONS -->
-    <section class="section">
-      <div class="two-col">
-
-        <div>
-          <div class="section-header">
-            <span class="section-num">02 —</span>
-            <h2 class="section-title" data-lang="he">השכלה</h2>
-            <h2 class="section-title" data-lang="en">Education</h2>
-          </div>
-
-          <div class="edu-item">
-            <div class="edu-year range">2018 — 2021</div>
-            <div class="edu-body">
-              <div class="edu-name" data-lang="he">B.A. מנהל מערכות בריאות</div>
-              <div class="edu-name" data-lang="en">B.A. in Health Systems Management</div>
-              <div class="edu-place" data-lang="he">אוניברסיטת אריאל · מסלול מצטיינים</div>
-              <div class="edu-place" data-lang="en">Ariel University · Honors Track</div>
-              <div class="edu-note" data-lang="he">ממוצע 92 · פרויקט גמר בטכנולוגיות מידע בבריאות הציבור · התמחות במערכות מידע</div>
-              <div class="edu-note" data-lang="en">GPA 92 · Final project in public health information technologies · Specialization in information systems</div>
-            </div>
-          </div>
-
-          <div class="edu-item">
-            <div class="edu-year range">2010 — 2013</div>
-            <div class="edu-body">
-              <div class="edu-name" data-lang="he">לימודי סיעוד — אחות מוסמכת</div>
-              <div class="edu-name" data-lang="en">Nursing Studies — Registered Nurse</div>
-              <div class="edu-place" data-lang="he">בית הספר לאחיות · בי״ח לניאדו</div>
-              <div class="edu-place" data-lang="en">School of Nursing · Laniado Hospital</div>
-              <div class="edu-note" data-lang="he">סיום התנסויות קליניות בהצטיינות (90+)</div>
-              <div class="edu-note" data-lang="en">Completed clinical placements with distinction (90+)</div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="section-header">
-            <span class="section-num">03 —</span>
-            <h2 class="section-title" data-lang="he">קורסים והסמכות</h2>
-            <h2 class="section-title" data-lang="en">Courses &amp; Certifications</h2>
-          </div>
-
-          <div class="edu-item">
-            <div class="edu-year">
-              <span data-lang="he">מאוחדת</span>
-              <span data-lang="en">Meuhedet</span>
-            </div>
-            <div class="edu-body">
-              <div class="edu-name" data-lang="he">קורס ליווי הריון</div>
-              <div class="edu-name" data-lang="en">Pregnancy Support Course</div>
-              <div class="edu-place" data-lang="he">קופת חולים מאוחדת</div>
-              <div class="edu-place" data-lang="en">Meuhedet Health Services</div>
-            </div>
-          </div>
-
-          <div class="edu-item">
-            <div class="edu-year">
-              <span data-lang="he">מאוחדת</span>
-              <span data-lang="en">Meuhedet</span>
-            </div>
-            <div class="edu-body">
-              <div class="edu-name" data-lang="he">קורס אחיות בקהילה</div>
-              <div class="edu-name" data-lang="en">Community Nursing Course</div>
-              <div class="edu-place" data-lang="he">קופת חולים מאוחדת</div>
-              <div class="edu-place" data-lang="en">Meuhedet Health Services</div>
-            </div>
-          </div>
-
-          <div class="edu-item">
-            <div class="edu-year">
-              <span data-lang="he">מד״א</span>
-              <span data-lang="en">MDA</span>
-            </div>
-            <div class="edu-body">
-              <div class="edu-name" data-lang="he">ACLS — החייאה מתקדמת (Advanced Cardiac Life Support)</div>
-              <div class="edu-name" data-lang="en">ACLS — Advanced Cardiac Life Support</div>
-              <div class="edu-place" data-lang="he">מגן דוד אדום · הסמכה קלינית למענה במצבי חירום לב-ריאה</div>
-              <div class="edu-place" data-lang="en">Magen David Adom · Clinical certification for cardiopulmonary emergency response</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SKILLS & TOOLS -->
-    <section class="section" style="margin-bottom: 0;">
-      <div class="two-col">
-
-        <div>
-          <div class="section-header">
-            <span class="section-num">04 —</span>
-            <h2 class="section-title" data-lang="he">כישורים</h2>
-            <h2 class="section-title" data-lang="en">Skills</h2>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-label" data-lang="he">חוזקות מקצועיות</div>
-            <div class="skill-label" data-lang="en">Key Strengths</div>
-            <div class="skill-content" data-lang="he">
-              זיהוי ומיון מהיר של מצבים דחופים ומתן מענה מקצועי תחת עומס. <strong>ייצוגיות וכושר ביטוי</strong>, תקשורת בין-אישית גבוהה ותודעת שירות מפותחת.
-            </div>
-            <div class="skill-content" data-lang="en">
-              Rapid identification and triage of urgent cases with professional response under pressure. <strong>Strong presence and articulate communication</strong>, excellent interpersonal skills and a highly developed service orientation.
-            </div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-label" data-lang="he">כישורים מרכזיים</div>
-            <div class="skill-label" data-lang="en">Core Skills</div>
-            <div class="skill-tags">
-              <span class="skill-tag" data-lang="he">קבלת החלטות במיון וטריאז'</span>
-              <span class="skill-tag" data-lang="en">Triage &amp; Clinical Decision-Making</span>
-              <span class="skill-tag" data-lang="he">ניהול מצבי עומס וריבוי משימות</span>
-              <span class="skill-tag" data-lang="en">High-Pressure &amp; Multi-Tasking Management</span>
-              <span class="skill-tag" data-lang="he">תקשורת בין-אישית ושירותיות גבוהה</span>
-              <span class="skill-tag" data-lang="en">Interpersonal Communication &amp; Service Excellence</span>
-              <span class="skill-tag" data-lang="he">עבודת צוות וסביבה דינמית</span>
-              <span class="skill-tag" data-lang="en">Teamwork in Dynamic Environments</span>
-              <span class="skill-tag" data-lang="he">הטמעת תהליכים והדרכת מטופלים</span>
-              <span class="skill-tag" data-lang="en">Process Implementation &amp; Patient Education</span>
-              <span class="skill-tag" data-lang="he">ניהול סיכונים קליניים ובטיחות המטופל</span>
-              <span class="skill-tag" data-lang="en">Clinical Risk Management &amp; Patient Safety</span>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="section-header">
-            <span class="section-num">05 —</span>
-            <h2 class="section-title" data-lang="he">מערכות וכלים</h2>
-            <h2 class="section-title" data-lang="en">Systems &amp; Tools</h2>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-label" data-lang="he">מערכות מידע רפואיות</div>
-            <div class="skill-label" data-lang="en">Medical Information Systems</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Clicks</span>
-              <span class="skill-tag">Easymed</span>
-              <span class="skill-tag">SAP</span>
-              <span class="skill-tag">AS400</span>
-              <span class="skill-tag" data-lang="he">קמיליון</span>
-              <span class="skill-tag" data-lang="en">Chameleon</span>
-              <span class="skill-tag" data-lang="he">תוכנות ניהול מעבדה</span>
-              <span class="skill-tag" data-lang="en">Lab Management Software</span>
-              <span class="skill-tag">CRM</span>
-            </div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-label">Office</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Excel</span>
-              <span class="skill-tag">PowerPoint</span>
-              <span class="skill-tag">Word</span>
-            </div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-label" data-lang="he">המלצות</div>
-            <div class="skill-label" data-lang="en">References</div>
-            <div class="skill-content" data-lang="he">המלצות מפורטות ממנהלים ישירים יסופקו לפי דרישה.</div>
-            <div class="skill-content" data-lang="en">Detailed references from direct managers available upon request.</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-meta">Curriculum Vitae · 2026</div>
-    <div class="footer-mark">MICHAL AVIDAN</div>
-  </footer>
+  <div class="sheet" id="sheet"></div>
 
 </div>
+
+<noscript>
+  <div style="max-width:794px; margin:0 auto; padding:16px; text-align:center; font-size:14px;">
+    להצגת קורות החיים יש לאפשר JavaScript · Please enable JavaScript to view this CV.
+  </div>
+</noscript>
 
 <script>
-  function setLang(lang) {
-    const html = document.documentElement;
-    html.setAttribute('lang', lang);
-    html.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
-    document.getElementById('btn-he').classList.toggle('active', lang === 'he');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.title = lang === 'he' ? 'מיכל אבידן — קורות חיים' : 'Michal Avidan — CV';
-    try { localStorage.setItem('michal-cv-lang', lang); } catch (e) {}
-  }
+const HE = {
+  dir: 'rtl', firstName: 'מיכל', lastName: 'אבידן', printLabel: 'הדפסה / ‪PDF‬',
+  title: 'מיכל אבידן — קורות חיים',
+  location: 'זכרון יעקב',
+  tagline: 'אחות מוסמכת · טריאז׳, אשפוז ורפואה דחופה בקהילה · שליטה מצוינת במערכות מידע רפואיות',
+  summary: 'אחות מוסמכת בעלת ידע קליני רחב, יכולת זיהוי ומיון (טריאז׳) מהיר במצבי עומס, תודעת שירות גבוהה ושליטה מצוינת במערכות מידע רפואיות. בעלת ניסיון עשיר בעבודה פרונטלית וטראומטית/דחופה, מתן מענה אנושי ומקצועי והובלת טיפול איכותי בקהילה ובאשפוז.',
+  t: { experience: 'ניסיון מקצועי', experienceKicker: 'EXPERIENCE', education: 'השכלה', courses: 'קורסים והסמכות', skills: 'כישורים', systems: 'מערכות וכלים', references: 'המלצות מפורטות ממנהלים ישירים יסופקו לפי דרישה.' },
+  jobs: [
+    { years: '2025—2026', tag: 'קהילה', title: 'אחות קהילה וחיסונים', org: 'קופת חולים מכבי', points: [
+      'טיפול סיעודי כוללני במרפאה ראשונית: חיסונים, מעקבי שגרה, טיפולים והדרכת מטופלים.',
+      'מתן חיסונים לכל הגילאים ומעקב אחר שגרת החיסונים בהתאם להנחיות משרד הבריאות.',
+      'עבודה שוטפת מול רופאי משפחה וצוות רב-מקצועי בקהילה.'] },
+    { years: '2022—2024', tag: 'אשפוז', title: 'אחות מערך אשפוז', org: 'בית חולים רפאל', points: [
+      'ניהול רציף של 20–25 קבלות ושחרורים של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול, מאזן תרופתי מדויק ותקשורת רציפה מול צוות הרופאים.',
+      'אחריות משמרת והתנהלות שוטפת מול רופאים וצוות המערך.'] },
+    { years: '2018—2022', tag: '4 שנים', title: 'אחות', org: 'הרצליה מדיקל סנטר', points: [
+      'ניהול רציף של 20–25 קבלות ושחרורים של מנותחים במשמרת בסביבה דינמית ועתירת עומס, תוך שמירה על בטיחות הטיפול ומאזן תרופתי מדויק.',
+      'אחריות משמרת במרכז רפואי פרטי מוביל, לצד התנהלות שוטפת מול רופאים.'] },
+    { years: '2015—2018', tag: 'ניהול', title: 'אחות אחראית — מרכז בריאות האישה', org: 'קופת חולים מאוחדת', points: [
+      'ניהול והובלת צוות רב-מקצועי של כ-8 עובדים, חלוקת תפקידים, סידורי עבודה והנחיית הצוות.',
+      'רכזת תחום בריאות היילוד וניהול המעבדה.',
+      'הובלת שגרת העבודה של המרכז מול צוותים רפואיים ומנהליים.'],
+      note: 'במקביל: אחות במוקד חירום פרונטלי ברפואה ראשונית ורפואת משפחה, קופ״ח מאוחדת — טיפול במקרים דחופים בקהילה.' },
+    { years: '2013—2015', tag: 'בריאות הנפש', title: 'אחות', org: 'המרכז לבריאות הנפש שער מנשה', points: [
+      'אחראית משמרת במחלקת אשפוז פסיכיאטרית.',
+      'אחראית איזון תרופתי.'] }
+  ],
+  education: [
+    { years: '2018—2021', degree: '‪B.A.‬ מנהל מערכות בריאות', school: 'אוניברסיטת אריאל · מסלול מצטיינים', detail: 'ממוצע 92 · פרויקט גמר בטכנולוגיות מידע בבריאות הציבור · התמחות במערכות מידע' },
+    { years: '2010—2013', degree: 'לימודי סיעוד — אחות מוסמכת', school: 'בית הספר לאחיות · בי״ח לניאדו', detail: 'סיום התנסויות קליניות בהצטיינות ‪(90+)‬' }
+  ],
+  courses: [
+    { badge: 'מד״א', name: 'ACLS — החייאה מתקדמת', org: 'מגן דוד אדום · הסמכה קלינית למענה במצבי חירום לב-ריאה' },
+    { badge: 'מאוחדת', name: 'קורס אחיות בקהילה', org: 'קופת חולים מאוחדת' },
+    { badge: 'מאוחדת', name: 'קורס ליווי הריון', org: 'קופת חולים מאוחדת' }
+  ],
+  strengths: 'זיהוי ומיון מהיר של מצבים דחופים ומתן מענה מקצועי תחת עומס. ייצוגיות וכושר ביטוי, תקשורת בין-אישית גבוהה ותודעת שירות מפותחת.',
+  skills: ['קבלת החלטות במיון וטריאז׳','ניהול מצבי עומס וריבוי משימות','תקשורת בין-אישית ושירותיות גבוהה','עבודת צוות וסביבה דינמית','הטמעת תהליכים והדרכת מטופלים','ניהול סיכונים קליניים ובטיחות המטופל']
+};
 
-  (function init() {
-    let lang = 'he';
-    try {
-      const saved = localStorage.getItem('michal-cv-lang');
-      if (saved === 'he' || saved === 'en') lang = saved;
-      else if (navigator.language && navigator.language.toLowerCase().startsWith('en')) lang = 'en';
-    } catch (e) {}
-    setLang(lang);
-  })();
+const EN = {
+  dir: 'ltr', firstName: 'Michal', lastName: 'Avidan', printLabel: 'Print / PDF',
+  title: 'Michal Avidan — CV',
+  location: "Zikhron Ya'akov, Israel",
+  tagline: 'Registered Nurse · Triage, Inpatient & Community Urgent Care · Highly Proficient in Medical Information Systems',
+  summary: 'Registered Nurse with broad clinical knowledge, skilled in rapid triage and assessment under pressure, with a strong service orientation and excellent command of medical information systems. Extensive experience in front-line and trauma/urgent care, delivering professional, compassionate care and leading high-quality treatment in both community and inpatient settings.',
+  t: { experience: 'Professional Experience', experienceKicker: 'EXPERIENCE', education: 'Education', courses: 'Courses & Certifications', skills: 'Skills', systems: 'Systems & Tools', references: 'Detailed references from direct managers available upon request.' },
+  jobs: [
+    { years: '2025—2026', tag: 'Community', title: 'Community & Immunization Nurse', org: 'Maccabi Health Services', points: [
+      'Comprehensive nursing care in a primary care clinic: immunizations, routine follow-ups, treatments and patient education.',
+      'Administering vaccines across all age groups and monitoring routine immunization schedules according to Ministry of Health guidelines.',
+      'Ongoing collaboration with family physicians and a multidisciplinary community care team.'] },
+    { years: '2022—2024', tag: 'Inpatient', title: 'Inpatient Ward Nurse', org: 'Rafael Hospital', points: [
+      'Continuous management of 20–25 surgical admissions and discharges per shift in a dynamic, high-pressure environment, while maintaining patient safety, precise medication management and ongoing communication with the physician team.',
+      'Shift responsibility and day-to-day coordination with physicians and the ward team.'] },
+    { years: '2018—2022', tag: '4 Years', title: 'Nurse', org: 'Herzliya Medical Center', points: [
+      'Continuous management of 20–25 surgical admissions and discharges per shift in a dynamic, high-pressure environment, while maintaining patient safety and precise medication management.',
+      'Shift responsibility at a leading private medical center, alongside ongoing coordination with physicians.'] },
+    { years: '2015—2018', tag: 'Management', title: "Nurse in Charge — Women's Health Center", org: 'Meuhedet Health Services', points: [
+      'Managing and leading a multidisciplinary team of ~8 employees — assigning roles, building work schedules and guiding the team.',
+      'Newborn health coordinator and laboratory manager.',
+      "Leading the center's daily operations alongside medical and administrative teams."],
+      note: 'In parallel: Nurse at a walk-in urgent care center for primary and family medicine, Meuhedet Health Services — treating urgent cases in the community.' },
+    { years: '2013—2015', tag: 'Mental Health', title: 'Nurse', org: "Sha'ar Menashe Mental Health Center", points: [
+      'Shift supervisor in a psychiatric inpatient ward.',
+      'Responsible for medication balancing and management.'] }
+  ],
+  education: [
+    { years: '2018—2021', degree: 'B.A. in Health Systems Management', school: 'Ariel University · Honors Track', detail: 'GPA 92 · Final project in public health information technologies · Specialization in information systems' },
+    { years: '2010—2013', degree: 'Nursing Studies — Registered Nurse', school: 'School of Nursing · Laniado Hospital', detail: 'Completed clinical placements with distinction (90+)' }
+  ],
+  courses: [
+    { badge: 'MDA', name: 'ACLS — Advanced Cardiac Life Support', org: 'Magen David Adom · Clinical certification for cardiopulmonary emergency response' },
+    { badge: 'Meuhedet', name: 'Community Nursing Course', org: 'Meuhedet Health Services' },
+    { badge: 'Meuhedet', name: 'Pregnancy Support Course', org: 'Meuhedet Health Services' }
+  ],
+  strengths: 'Rapid identification and triage of urgent cases with professional response under pressure. Strong presence and articulate communication, excellent interpersonal skills and a highly developed service orientation.',
+  skills: ['Triage & Clinical Decision-Making','High-Pressure & Multi-Tasking Management','Interpersonal Communication & Service Excellence','Teamwork in Dynamic Environments','Process Implementation & Patient Education','Clinical Risk Management & Patient Safety']
+};
+
+const SYSTEMS = ['Clicks','Easymed','SAP','AS400','Chameleon','Lab Management Software','CRM','Excel','PowerPoint','Word'];
+
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function render(d) {
+  const jobs = d.jobs.map(job => `
+    <div class="job">
+      <div class="job-when">
+        <div class="job-years" dir="ltr">${esc(job.years)}</div>
+        <div class="job-tag">${esc(job.tag)}</div>
+      </div>
+      <div class="job-body">
+        <h3>${esc(job.title)}</h3>
+        <div class="job-org">${esc(job.org)}</div>
+        <ul>${job.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
+        ${job.note ? `<p class="job-note">${esc(job.note)}</p>` : ''}
+      </div>
+    </div>`).join('');
+
+  const education = d.education.map(e => `
+    <div>
+      <div class="edu-years" dir="ltr">${esc(e.years)}</div>
+      <h3>${esc(e.degree)}</h3>
+      <div class="edu-school">${esc(e.school)}</div>
+      <div class="edu-detail">${esc(e.detail)}</div>
+    </div>`).join('');
+
+  const courses = d.courses.map(c => `
+    <div>
+      <div class="course-badge">${esc(c.badge)}</div>
+      <h3>${esc(c.name)}</h3>
+      <div class="course-org">${esc(c.org)}</div>
+    </div>`).join('');
+
+  return `
+    <header>
+      <div>
+        <h1>${esc(d.firstName)} <span class="last">${esc(d.lastName)}</span></h1>
+        <div class="kicker" dir="ltr">RN · B.A.</div>
+        <p class="tagline">${esc(d.tagline)}</p>
+      </div>
+      <div class="contact" dir="ltr">
+        <a href="tel:+972509466500">050-9466500</a>
+        <a href="mailto:michalie.avidan@gmail.com">michalie.avidan@gmail.com</a>
+        <span>${esc(d.location)}</span>
+      </div>
+    </header>
+
+    <p class="summary">${esc(d.summary)}</p>
+
+    <div class="sec-head first">
+      <span class="sec-num">01</span>
+      <h2>${esc(d.t.experience)}</h2>
+      <span class="sec-rule"></span>
+      <span class="sec-kicker">${esc(d.t.experienceKicker)}</span>
+    </div>
+    <div class="jobs">${jobs}</div>
+
+    <div class="two-col">
+      <div>
+        <div class="sec-head">
+          <span class="sec-num">02</span>
+          <h2>${esc(d.t.education)}</h2>
+          <span class="sec-rule"></span>
+        </div>
+        <div class="edu-list">${education}</div>
+      </div>
+      <div>
+        <div class="sec-head">
+          <span class="sec-num">03</span>
+          <h2>${esc(d.t.courses)}</h2>
+          <span class="sec-rule"></span>
+        </div>
+        <div class="course-list">${courses}</div>
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>${esc(d.t.skills)}</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <p class="strengths">${esc(d.strengths)}</p>
+    <div class="pills">${d.skills.map(s => `<span class="pill">${esc(s)}</span>`).join('')}</div>
+
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>${esc(d.t.systems)}</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="systems" dir="ltr">${SYSTEMS.map(s => `<span>${esc(s)}</span>`).join('')}</div>
+
+    <footer>
+      <span>${esc(d.t.references)}</span>
+      <span class="footer-mark" dir="ltr">CV · 2026</span>
+    </footer>`;
+}
+
+function setLang(lang) {
+  const d = lang === 'he' ? HE : EN;
+  const html = document.documentElement;
+  html.setAttribute('lang', lang);
+  html.setAttribute('dir', d.dir);
+  document.title = d.title;
+  document.getElementById('sheet').innerHTML = render(d);
+  document.getElementById('btn-he').classList.toggle('active', lang === 'he');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-print').textContent = d.printLabel;
+  try { localStorage.setItem('michal-cv-lang', lang); } catch (e) {}
+}
+
+(function init() {
+  let lang = 'he';
+  try {
+    const saved = localStorage.getItem('michal-cv-lang');
+    if (saved === 'he' || saved === 'en') lang = saved;
+    else if (navigator.language && navigator.language.toLowerCase().startsWith('en')) lang = 'en';
+  } catch (e) {}
+  setLang(lang);
+})();
 </script>
-
 </body>
 </html>
