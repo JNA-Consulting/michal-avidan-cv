@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מיכל אבידן — קורות חיים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #36454f;
+    --charcoal-soft: #4a5b67;
+    --slate: #708090;
+    --slate-light: #8c9aa6;
+    --light-gray: #d3d3d3;
+    --bg-gray: #f4f5f6;
+    --hairline: #e5e7e9;
+    --white: #ffffff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    background: var(--bg-gray);
+    color: var(--charcoal);
+    font-family: 'Assistant', sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow:
+      0 1px 2px rgba(54, 69, 79, 0.04),
+      0 8px 30px rgba(54, 69, 79, 0.08);
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    padding: 70px 80px 50px;
+    border-bottom: 1px solid var(--hairline);
+    position: relative;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 4px;
+    height: 80px;
+    background: var(--charcoal);
+  }
+
+  .name-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .name {
+    font-size: 52px;
+    font-weight: 200;
+    color: var(--charcoal);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .name strong {
+    font-weight: 700;
+  }
+
+  .credential {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--slate);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border: 1px solid var(--light-gray);
+    padding: 6px 14px;
+  }
+
+  .role-line {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.02em;
+    margin-bottom: 32px;
+    max-width: 640px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+    padding-top: 24px;
+  }
+
+  .contact-item {
+    padding-left: 24px;
+    border-left: 1px solid var(--hairline);
+  }
+
+  .contact-item:last-child {
+    border-left: none;
+  }
+
+  .contact-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--slate);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .contact-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .contact-value.ltr {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+    text-align: right;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--slate);
+  }
+
+  .contact-link svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    stroke: var(--slate);
+    transition: stroke 0.15s ease;
+  }
+
+  .contact-link:hover svg {
+    stroke: var(--charcoal);
+  }
+
+  /* ===== CONTENT ===== */
+  .content {
+    padding: 50px 80px 60px;
+  }
+
+  /* ===== SUMMARY ===== */
+  .summary {
+    margin-bottom: 56px;
+    padding: 32px 36px;
+    background: var(--bg-gray);
+    border-right: 3px solid var(--charcoal);
+  }
+
+  .summary p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--charcoal-soft);
+    font-weight: 400;
+  }
+
+  .summary p strong {
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 50px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .section-num {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate);
+    letter-spacing: 0.1em;
+    min-width: 28px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--hairline);
+  }
+
+  /* ===== EXPERIENCE ===== */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 40px;
+    padding: 28px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .exp-item:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .exp-meta .date {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+  }
+
+  .exp-meta .duration {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--slate);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .exp-content .role {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .exp-content .org {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--slate);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted var(--light-gray);
+  }
+
+  .exp-content ul {
+    list-style: none;
+  }
+
+  .exp-content li {
+    position: relative;
+    padding-right: 18px;
+    margin-bottom: 8px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--charcoal-soft);
+    font-weight: 400;
+  }
+
+  .exp-content li::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 11px;
+    width: 8px;
+    height: 1px;
+    background: var(--slate);
+  }
+
+  .exp-content li strong {
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+
+  .achievement {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: var(--bg-gray);
+    font-size: 13.5px;
+    color: var(--charcoal-soft);
+    border-right: 2px solid var(--slate);
+  }
+
+  .achievement strong {
+    color: var(--charcoal);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== TWO COLUMN ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  /* ===== EDUCATION ===== */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    padding: 14px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .edu-item:first-child {
+    border-top: none;
+  }
+
+  .edu-year {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: 0.05em;
+    padding-top: 2px;
+  }
+
+  .edu-body .edu-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .edu-body .edu-place {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--slate);
+  }
+
+  .edu-body .edu-note {
+    font-size: 12.5px;
+    font-weight: 400;
+    color: var(--charcoal-soft);
+    margin-top: 4px;
+    line-height: 1.55;
+  }
+
+  /* ===== SKILLS ===== */
+  .skill-block {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .skill-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .skill-block .skill-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--slate);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .skill-block .skill-content {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--charcoal-soft);
+    font-weight: 400;
+  }
+
+  .skill-block .skill-content strong {
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--charcoal);
+    background: var(--bg-gray);
+    padding: 4px 12px;
+    border: 1px solid var(--hairline);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 30px 80px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-gray);
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--slate);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .footer-mark {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: 0.2em;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 760px) {
+    body { padding: 0; }
+    .page { box-shadow: none; }
+    .header { padding: 40px 28px 32px; }
+    .header::before { top: 40px; }
+    .name { font-size: 38px; }
+    .content { padding: 35px 28px 40px; }
+    .footer { padding: 24px 28px; flex-direction: column; gap: 8px; }
+    .summary { padding: 22px 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 16px; }
+    .contact-item {
+      padding-left: 0;
+      padding-bottom: 16px;
+      border-left: none;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { padding: 0; background: white; }
+    .page { box-shadow: none; max-width: 100%; }
+    .header { padding: 40px 50px 30px; }
+    .content { padding: 35px 50px; }
+    .footer { padding: 20px 50px; }
+    .section { margin-bottom: 30px; page-break-inside: avoid; }
+    .exp-item { page-break-inside: avoid; }
+    .summary { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="name-block">
+      <h1 class="name">מיכל <strong>אבידן</strong></h1>
+      <span class="credential">RN · B.A.</span>
+    </div>
+    <p class="role-line">אחות מוסמכת · בוגרת B.A. במנהל מערכות בריאות · ניסיון של יותר מעשור באשפוז, בקהילה ובבריאות האישה</p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-label">Telephone</div>
+        <div class="contact-value ltr">
+          <a class="contact-link" href="tel:+972509466500">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>050-9466500</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value ltr">
+          <a class="contact-link" href="mailto:michalie.avidan@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>michalie.avidan@gmail.com</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location</div>
+        <div class="contact-value">זכרון יעקב</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- SUMMARY -->
+    <section class="summary">
+      <p>
+        אחות מוסמכת עם ניסיון של יותר מ-<strong>12 שנים</strong> במגוון רחב של מסגרות טיפול — מערכי אשפוז וניתוחים, בריאות הנפש, רפואה ראשונית וקהילה. ניסיון ניהולי כ<strong>אחות אחראית של מרכז בריאות האישה</strong> בקופ״ח מאוחדת, לצד עבודה קלינית שוטפת במוקד חירום ובמחלקות אשפוז. בוגרת <strong>B.A. במנהל מערכות בריאות במסלול מצטיינים</strong> (ממוצע 92) עם התמחות במערכות מידע רפואיות. מחפשת את המקום הבא לקרוא לו בית — מקום ללמוד, ליישם ולהתקדם בו.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-num">01 —</span>
+        <h2 class="section-title">ניסיון מקצועי</h2>
+        <span class="section-rule"></span>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="date">2025 — 2026</div>
+          <div class="duration">קהילה</div>
+        </div>
+        <div class="exp-content">
+          <h3 class="role">אחות קהילה וחיסונים</h3>
+          <div class="org">קופת חולים מכבי</div>
+          <ul>
+            <li>טיפול סיעודי כוללני במרפאה ראשונית: חיסונים, מעקבי שגרה, טיפולים והדרכת מטופלים.</li>
+            <li>מתן חיסונים לכל הגילאים ומעקב אחר שגרת החיסונים בהתאם להנחיות משרד הבריאות.</li>
+            <li>עבודה שוטפת מול רופאי משפחה וצוות רב-מקצועי בקהילה.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="date">2022 — 2024</div>
+          <div class="duration">אשפוז</div>
+        </div>
+        <div class="exp-content">
+          <h3 class="role">אחות מערך אשפוז</h3>
+          <div class="org">בית חולים רפאל</div>
+          <ul>
+            <li>ניהול קבלות ושחרורים של מנותחים לאורך כל שלבי האשפוז.</li>
+            <li>איזון תרופתי ומעקב טיפולי שוטף.</li>
+            <li><strong>אחריות משמרת</strong> והתנהלות שוטפת מול רופאים וצוות המערך.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="date">2018 — 2022</div>
+          <div class="duration">4 שנים</div>
+        </div>
+        <div class="exp-content">
+          <h3 class="role">אחות</h3>
+          <div class="org">הרצליה מדיקל סנטר</div>
+          <ul>
+            <li>ניהול קבלות ושחרורים של מנותחים במרכז רפואי פרטי מוביל.</li>
+            <li>איזון תרופתי, אחריות משמרת והתנהלות שוטפת מול רופאים.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="date">2015 — 2018</div>
+          <div class="duration">ניהול</div>
+        </div>
+        <div class="exp-content">
+          <h3 class="role">אחות אחראית — מרכז בריאות האישה</h3>
+          <div class="org">קופת חולים מאוחדת</div>
+          <ul>
+            <li><strong>אחראית מרכז בריאות האישה</strong> — ניהול הצוות, חלוקת תפקידים וסידור עבודה.</li>
+            <li><strong>רכזת תחום בריאות היילוד</strong> וניהול המעבדה.</li>
+            <li>הובלת שגרת העבודה של המרכז מול צוותים רפואיים ומנהליים.</li>
+          </ul>
+          <div class="achievement">
+            <strong>במקביל:</strong> אחות במוקד חירום פרונטלי ברפואה ראשונית ורפואת משפחה, קופ״ח מאוחדת — טיפול במקרים דחופים בקהילה.
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="date">2013 — 2015</div>
+          <div class="duration">בריאות הנפש</div>
+        </div>
+        <div class="exp-content">
+          <h3 class="role">אחות</h3>
+          <div class="org">המרכז לבריאות הנפש שער מנשה</div>
+          <ul>
+            <li><strong>אחראית משמרת</strong> במחלקת אשפוז פסיכיאטרית.</li>
+            <li>אחראית איזון תרופתי.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section class="section">
+      <div class="two-col">
+
+        <div>
+          <div class="section-header">
+            <span class="section-num">02 —</span>
+            <h2 class="section-title">השכלה</h2>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-year">2018 — 2021</div>
+            <div class="edu-body">
+              <div class="edu-name">B.A. מנהל מערכות בריאות</div>
+              <div class="edu-place">אוניברסיטת אריאל · מסלול מצטיינים</div>
+              <div class="edu-note">ממוצע 92 · פרויקט גמר בטכנולוגיות מידע בבריאות הציבור · התמחות במערכות מידע</div>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-year">2010 — 2013</div>
+            <div class="edu-body">
+              <div class="edu-name">לימודי סיעוד — אחות מוסמכת</div>
+              <div class="edu-place">בית הספר לאחיות · בי״ח לניאדו</div>
+              <div class="edu-note">סיום התנסויות קליניות בהצטיינות (90+)</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-header">
+            <span class="section-num">03 —</span>
+            <h2 class="section-title">קורסים והסמכות</h2>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-year">מאוחדת</div>
+            <div class="edu-body">
+              <div class="edu-name">קורס ליווי הריון</div>
+              <div class="edu-place">קופת חולים מאוחדת</div>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-year">מאוחדת</div>
+            <div class="edu-body">
+              <div class="edu-name">קורס אחיות בקהילה</div>
+              <div class="edu-place">קופת חולים מאוחדת</div>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-year">מד״א</div>
+            <div class="edu-body">
+              <div class="edu-name">ACLS — החייאה מתקדמת</div>
+              <div class="edu-place">מגן דוד אדום</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS & TOOLS -->
+    <section class="section" style="margin-bottom: 0;">
+      <div class="two-col">
+
+        <div>
+          <div class="section-header">
+            <span class="section-num">04 —</span>
+            <h2 class="section-title">כישורים</h2>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">חוזקות מקצועיות</div>
+            <div class="skill-content">
+              הובלת מהלכי התייעלות חוצי ארגון, הטמעת תהליכים ואינטגרציה בין מחלקות. <strong>ייצוגיות וכושר ביטוי</strong>, תקשורת בין-אישית גבוהה ותודעת שירות.
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">כישורים מרכזיים</div>
+            <div class="skill-tags">
+              <span class="skill-tag">עבודה תחת לחץ</span>
+              <span class="skill-tag">קבלת החלטות</span>
+              <span class="skill-tag">עבודת צוות</span>
+              <span class="skill-tag">סביבה דינאמית</span>
+              <span class="skill-tag">הטמעת תהליכים</span>
+              <span class="skill-tag">ניהול צוות</span>
+              <span class="skill-tag">הדרכת מטופלים</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-header">
+            <span class="section-num">05 —</span>
+            <h2 class="section-title">מערכות וכלים</h2>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">מערכות מידע רפואיות</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Clicks</span>
+              <span class="skill-tag">Easymed</span>
+              <span class="skill-tag">SAP</span>
+              <span class="skill-tag">AS400</span>
+              <span class="skill-tag">קמיליון</span>
+              <span class="skill-tag">תוכנות ניהול מעבדה</span>
+              <span class="skill-tag">CRM</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">Office</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">PowerPoint</span>
+              <span class="skill-tag">Word</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">המלצות</div>
+            <div class="skill-content">יתקבלו על פי דרישה.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-meta">Curriculum Vitae · 2026</div>
+    <div class="footer-mark">MICHAL AVIDAN</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
